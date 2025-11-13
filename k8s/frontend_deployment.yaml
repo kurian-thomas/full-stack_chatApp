@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: chat-app
+  name: chat-frontend-deploy
+  labels:
+    app: chat-fronent
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chat-frontend
+  template:
+    metadata:
+      labels:
+        app: chat-frontend
+    spec:
+      containers:
+      - name: chat-frontend
+        image: two-node-local-cluster-registry:45315/chat-frontend:latest
+        ports:
+        - containerPort: 80
+

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-db-pv
+spec:
+  storageClassName: local-storage
+  capacity:
+    storage: 5Gi # Defines the storage capacity of the PV
+  accessModes:
+    - ReadWriteOnce # Specifies how the volume can be accessed (e.g., ReadWriteOnce, ReadOnlyMany, ReadWriteMany)
+  hostPath: # Specifies the local path configuration
+    path: /data/pv0001 # The actual path on the host node
+

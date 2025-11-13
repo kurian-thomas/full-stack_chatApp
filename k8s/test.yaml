@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: image-pull-test
+spec:
+  containers:
+    - name: chat-frontend
+      image: two-node-local-cluster-registry:45315/chat-frontend:latest
+      command: ["sleep", "3600"] # Keep the pod running for observation
+
